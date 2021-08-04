@@ -1,0 +1,48 @@
+AttnGAN
+IS: 4.32
+Fid:31.529
+
+# search space
+CONV_TYPE = {0: 'conv', 1: 'trans'}
+NORM_TYPE = {0: None, 1: 'bn', 2: 'in'}
+UP_TYPE = {0: 'bilinear', 1: 'nearest', 2: 'deconv'}
+SHORT_CUT_TYPE = {0: False, 1: True}
+SKIP_TYPE = {0: False, 1: True}
+
+
+Stage1: arch = '0, 1, 1, 1, 0, 0, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 5' log0001_AttnGAN.out
+Stage1 and Stage3 (AttentionGAN)
+epoch600:   IS: 4.62    Fid: 29.16
+
+
+Stage1: arch = '0, 1, 1, 1, 0, 0, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 5'  log0001.out
+Stage2: arch2 = '1, 0, 1, 1'
+Stage3: arch3 = '1, 1, 2, 1'
+epoch600:   IS: 4.17    Fid: 36.79
+
+
+Stage1: arch1 = '0, 1, 1, 1, 0, 0, 2, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 6'   # log0000.out
+Stage2: arch2 = '1, 0, 1, 1'
+Stage3: arch3 = '1, 1, 2, 1'
+epoch500:   IS: 4.96~4.99    Fid: 15.95
+epoch600:   IS: 4.97         Fid: 20.16
+
+
+Coco epoch=120
+0000/models_coco/netG_epoch_120
+IS: 16.50
+Fid: 43.72
+
+0001/models_coco/netG_epoch_120
+IS: 17.13
+Fid: 48.96
+
+
+epoch=250
+0000/models_coco/netG_epoch_80
+IS: 11.60
+Fid: 107.58+15
+
+0001/models_coco/netG_epoch_220
+IS: 13.38
+Fid: 106.94 + 15
